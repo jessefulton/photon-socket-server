@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <script src='/socket.io/socket.io.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.7/socket.io.js'></script>
         <script>
             var socket = io();
 
@@ -11,8 +11,8 @@
                 // Respond with a message including this clients' id sent from the server
                 socket.emit('i am client', {data: 'foo!', id: data.id});
             });
-            socket.on('time', function(data) {
-                addMessage(data.time);
+            socket.on('message', function(data) {
+                addMessage(data.msg);
             });
             socket.on('error', console.error.bind(console));
             socket.on('message', console.log.bind(console));
@@ -28,6 +28,7 @@
         </script>
     </head>
     <body>
+        <h2>Testing this page</h2>
         <ul id='messages'></ul>
     </body>
 </html>
