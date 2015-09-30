@@ -25,7 +25,7 @@ function getSparkVariables(){
   console.log("get spark var");
   sparkDevice.getVariable('stacey', function(err, data) {
   if (err) {
-    console.log("Issue with Result);
+    console.log("Issue with Result");
     
   } else {
      console.log("data.result: "+data.result);
