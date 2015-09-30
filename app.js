@@ -7,7 +7,10 @@ spark.login({accessToken: process.env.ACCESS_TOKEN}).then(
   function(token){
     console.log("done");
     spark.getDevice(process.env.DEVICE_ID, function(err, device) {
-       sparkDevice = device; 
+       sparkDevice = device;
+       device.onEvent('foo', function(data) {
+        io.emit('foo', { 'data': data });
+        });
        startSparkInterval();
     });
   },
