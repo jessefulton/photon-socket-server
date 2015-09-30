@@ -3,10 +3,10 @@
 var spark = require('spark');
 var sparkDevice = null;
 
-spark.login({accessToken: '6b04dacd5371d09abf25f5b69254303970f196df'}).then(
+spark.login({accessToken: process.env.ACCESS_TOKEN}).then(
   function(token){
     console.log("done");
-    spark.getDevice('230037000547343138333038', function(err, device) {
+    spark.getDevice(process.env.DEVICE_ID, function(err, device) {
        sparkDevice = device; 
        startSparkInterval();
     });
